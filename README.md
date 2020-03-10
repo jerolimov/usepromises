@@ -4,16 +4,16 @@
 
 ### Installation
 
-npm install --save @jerolimov/usepromise
+npm install --save usepromises
 
 or
 
-yarn add @jerolimov/usepromise
+yarn add usepromises
 
 ### Usage / Example
 
 ```javascript
-import { usePromise } from '@jerolimov/usepromise';
+import { usePromise } from 'usepromises';
 
 ...
 

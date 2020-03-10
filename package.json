@@ -1,6 +1,6 @@
 {
-  "name": "@jerolimov/usepromise",
-  "version": "0.2.0",
+  "name": "usepromises",
+  "version": "0.3.0",
   "license": "MIT",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
@@ -29,6 +29,14 @@
     "trailingComma": "es5"
   },
   "author": "Christoph Jerolimov",
+  "homepage": "https://github.com/jerolimov/usepromises",
+  "repository": {
+    "type": "github",
+    "url": "https://github.com/jerolimov/usepromises/issues"
+  },
+  "bugs": {
+    "url": "https://github.com/jerolimov/usepromises/issues"
+  },
   "module": "dist/usepromise.esm.js",
   "devDependencies": {
     "@types/jest": "^25.1.4",
