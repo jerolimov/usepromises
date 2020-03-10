@@ -32,11 +32,23 @@
   "homepage": "https://github.com/jerolimov/usepromises",
   "repository": {
     "type": "github",
-    "url": "https://github.com/jerolimov/usepromises/issues"
+    "url": "https://github.com/jerolimov/usepromises"
   },
   "bugs": {
     "url": "https://github.com/jerolimov/usepromises/issues"
   },
+  "keywords": [
+    "react",
+    "reactjs",
+    "reactnative",
+    "react-native",
+    "react-hooks",
+    "hook",
+    "hooks",
+    "promise",
+    "promises",
+    "typescript"
+  ],
   "module": "dist/usepromise.esm.js",
   "devDependencies": {
     "@types/jest": "^25.1.4",
