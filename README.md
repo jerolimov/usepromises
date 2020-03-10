@@ -1,4 +1,4 @@
-# usePromise
+# usePromises
 
 **React and React Native hook to consume a Promise (similar to useEffect) with full TypeScript support**
 
