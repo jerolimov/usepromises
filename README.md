@@ -1,6 +1,6 @@
 # usePromise
 
-## React and React Native hook to consume a Promise (similar to useEffect)
+**React and React Native hook to consume a Promise (similar to useEffect) with full TypeScript support**
 
 ### Installation
 
@@ -13,9 +13,15 @@ yarn add @jerolimov/usepromise
 ### Usage / Example
 
 ```javascript
-import { usePromise } from '../.';
+import { usePromise } from '@jerolimov/usepromise';
 
 ...
+
+interface SampleResponse {
+  slideshow: {
+    title: string
+  }
+}
 
 function Example() {
   const response = usePromise<SampleResponse>(async () => {
