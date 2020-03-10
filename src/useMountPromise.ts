@@ -1,8 +1,6 @@
 import * as React from 'react';
 
-export function useMountPromise(
-  promise: Promise<any> | (() => Promise<any>)
-) {
+export function useMountPromise(promise: Promise<any> | (() => Promise<any>)) {
   React.useEffect(() => {
     try {
       if (typeof promise === 'function') {

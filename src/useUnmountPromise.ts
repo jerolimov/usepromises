@@ -1,8 +1,6 @@
 import * as React from 'react';
 
-export function useUnmountPromise(
-  promise: Promise<any> | (() => Promise<any>)
-) {
+export function useUnmountPromise(promise: Promise<any> | (() => Promise<any>)) {
   React.useEffect(() => {
     return () => {
       try {
@@ -17,6 +15,6 @@ export function useUnmountPromise(
       } catch (error) {
         console.warn('useUnmountPromise failed:', error);
       }
-    }
+    };
   }, []);
 }

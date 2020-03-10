@@ -13,7 +13,7 @@ export function defaultReducer<Resolved, Rejected>(
       return prevState;
   }
 }
-  
+
 export const initialState: { isPending: true; isResolved: false; isRejected: false } = {
   isPending: true,
   isResolved: false,
