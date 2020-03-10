@@ -33,7 +33,7 @@ function Example() {
     <div>
       {response.isResolved && response.value.slideshow.title}
 
-      {response.resolved.isRejected ? `Error: ${response.error}` : null}
+      {response.isRejected ? `Error: ${response.error}` : null}
     </div>
   );
 };
