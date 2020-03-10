@@ -1,20 +1,13 @@
 import * as React from 'react';
 
 export type PromiseResult<Resolved, Rejected> =
-  | { status: 'PENDING' }
-  | { status: 'FULFILLED'; resolved: Resolved }
-  | { status: 'REJECTED'; rejected: Rejected };
-
-/*
-export type PromiseResult2<Resolved, Rejected> =
-  { isPending: true } |
-  { isResolved: true, value: Resolved } |
-  { isRejected: true, error: Rejected };
-*/
+  | { isPending: true; isResolved: false; isRejected: false }
+  | { isPending: false; isResolved: true; isRejected: false; value: Resolved }
+  | { isPending: false; isResolved: false; isRejected: true; error: Rejected };
 
 type PromiseAction<Resolved, Rejected> =
-  | { type: 'FULFILLED'; resolved: Resolved }
-  | { type: 'REJECTED'; rejected: Rejected };
+  | { type: 'RESOLVED'; value: Resolved }
+  | { type: 'REJECTED'; error: Rejected };
 
 type Reducer<Resolved, Rejected> = React.Reducer<
   PromiseResult<Resolved, Rejected>,
@@ -24,18 +17,22 @@ type Reducer<Resolved, Rejected> = React.Reducer<
 function defaultReducer<Resolved, Rejected>(
   prevState: PromiseResult<Resolved, Rejected>,
   action: PromiseAction<Resolved, Rejected>
-) {
+): PromiseResult<Resolved, Rejected> {
   switch (action.type) {
-    case 'FULFILLED':
-      return { status: action.type, resolved: action.resolved };
+    case 'RESOLVED':
+      return { isPending: false, isResolved: true, isRejected: false, value: action.value };
     case 'REJECTED':
-      return { status: action.type, rejected: action.rejected };
+      return { isPending: false, isResolved: false, isRejected: true, error: action.error };
     default:
       return prevState;
   }
 }
 
-const initialState: { status: 'PENDING' } = { status: 'PENDING' };
+const initialState: { isPending: true; isResolved: false; isRejected: false } = {
+  isPending: true,
+  isResolved: false,
+  isRejected: false,
+};
 
 export function usePromise<Resolved, Rejected = Error>(
   promise: Promise<Resolved> | (() => Promise<Resolved>),
@@ -53,11 +50,11 @@ export function usePromise<Resolved, Rejected = Error>(
         promise = promise();
       }
       promise.then(
-        value => dispatch({ type: 'FULFILLED', resolved: value }),
-        error => dispatch({ type: 'REJECTED', rejected: error })
+        value => dispatch({ type: 'RESOLVED', value }),
+        error => dispatch({ type: 'REJECTED', error })
       );
     } catch (error) {
-      dispatch({ type: 'REJECTED', rejected: error });
+      dispatch({ type: 'REJECTED', error });
     }
   }, deps);
 

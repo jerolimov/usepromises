@@ -29,11 +29,11 @@ function App() {
 
   return (
     <div>
-      Example: {response.status === 'FULFILLED' && response.resolved.status}
+      Example: {response.isResolved && response.value.status}
       
       <br/><br/>
 
-      Example 2: {response2.status === 'FULFILLED' && response2.resolved.slideshow.title}
+      Example 2: {response2.isResolved && response2.value.slideshow.title}
     </div>
   );
 };

@@ -31,7 +31,9 @@ function Example() {
 
   return (
     <div>
-      Example: {response.status === 'FULFILLED' && response.resolved.slideshow.title}
+      {response.isResolved && response.value.slideshow.title}
+
+      {response.resolved.isRejected ? `Error: ${response.error}` : null}
     </div>
   );
 };
