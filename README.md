@@ -48,17 +48,17 @@ import { useMountPromise } from 'usepromises';
 
 ...
 
-interface SampleResponse {
+interface SampleData {
   slideshow: {
     title: string
   }
 }
 
 function Example() {
-  const [response, setResponse] = useState<SampleResponse>();
+  const [data, setData] = useState<SampleData>();
   useMountPromise(async () => {
     const response = await fetch('https://httpbin.org/json');
-    setResponse(response.json());
+    setData(await response.json());
   });
 
   ...
