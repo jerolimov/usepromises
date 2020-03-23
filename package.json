@@ -5,8 +5,12 @@
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
   "files": [
+    "src",
     "dist"
   ],
+  "engines": {
+    "node": ">=10"
+  },
   "scripts": {
     "start": "tsdx watch",
     "build": "tsdx build",
@@ -49,15 +53,15 @@
     "promises",
     "typescript"
   ],
-  "module": "dist/usepromise.esm.js",
+  "module": "dist/usepromises.esm.js",
   "devDependencies": {
     "@types/jest": "^25.1.4",
-    "@types/react": "^16.9.23",
+    "@types/react": "^16.9.25",
     "@types/react-dom": "^16.9.5",
     "husky": "^4.2.3",
-    "react": "^16.13.0",
-    "react-dom": "^16.13.0",
-    "tsdx": "^0.12.3",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "tsdx": "^0.13.0",
     "tslib": "^1.11.1",
     "typescript": "^3.8.3"
   }
