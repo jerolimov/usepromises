@@ -4,11 +4,15 @@
 
 ## Installation
 
+```
 npm install --save usepromises
+```
 
 or
 
+```
 yarn add usepromises
+```
 
 ## Usage / Examples
 
